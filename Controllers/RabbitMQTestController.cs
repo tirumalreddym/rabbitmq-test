@@ -23,7 +23,7 @@ namespace rabbitmq_test.Controllers
         [HttpGet]
         public string Get()
         {
-            var factory = new ConnectionFactory() { HostName = "rabbitmq-swift-ft-dev.apps.ddc-test.corp.intranet" };
+            var factory = new ConnectionFactory() { HostName = "rabbitmq" };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
