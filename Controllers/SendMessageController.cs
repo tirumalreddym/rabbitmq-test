@@ -20,8 +20,8 @@ namespace rabbitmq_test.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public string sendMessage()
+        [HttpPost]
+        public string sendMessage(string message)
         {
             var factory = new ConnectionFactory() { HostName = "rabbitmq" };
             using (var connection = factory.CreateConnection())
@@ -33,7 +33,7 @@ namespace rabbitmq_test.Controllers
                                       autoDelete: false,
                                       arguments: null);
 
-                string message = "Hello World!";
+                //string message = "Hello World!";
                 var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
