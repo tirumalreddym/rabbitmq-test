@@ -11,17 +11,17 @@ namespace rabbitmq_test.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class RabbitMQTestController : ControllerBase
+    public class SendMessageController : ControllerBase
     {
-        private readonly ILogger<RabbitMQTestController> _logger;
+        private readonly ILogger<SendMessageController> _logger;
 
-        public RabbitMQTestController(ILogger<RabbitMQTestController> logger)
+        public SendMessageController(ILogger<SendMessageController> logger)
         {
             _logger = logger;
         }
 
         [HttpGet]
-        public string Get()
+        public string sendMessage()
         {
             var factory = new ConnectionFactory() { HostName = "rabbitmq" };
             using (var connection = factory.CreateConnection())
